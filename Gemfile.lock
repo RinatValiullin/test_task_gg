@@ -71,6 +71,8 @@ GEM
     concurrent-ruby (1.1.7)
     crass (1.0.6)
     diff-lcs (1.4.4)
+    email_validator (2.0.1)
+      activemodel
     erubi (1.10.0)
     ffi (1.13.1)
     globalid (0.4.2)
@@ -187,6 +189,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara (>= 2.15)
+  email_validator
   listen (~> 3.1.5)
   pg
   pry-rails

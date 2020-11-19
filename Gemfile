@@ -12,6 +12,7 @@ gem 'webpacker', '~> 4.0'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
 gem 'listen', '~> 3.1.5'
+gem 'email_validator'
 
 group :development, :test do
   gem 'pry-rails'

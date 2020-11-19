@@ -1,4 +1,4 @@
-class ClientsCompaniesCreator
+class ClientsCompanyCreator
 
   attr_accessor :emails, :subject, :message
 
