@@ -15,6 +15,9 @@ gem 'listen', '~> 3.1.5'
 gem 'email_validator'
 gem 'jsonapi-serializer'
 
+#mailers
+gem 'mailgun-ruby', '~>1.1.6'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 4.0.1'
