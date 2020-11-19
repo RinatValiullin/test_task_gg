@@ -11,7 +11,7 @@ class SparkpostMailer
         options: { sandbox: true },
         recipients: addresses,
         content: {
-          from: { email: "qweqw@asdasd.com" },
+          from: { email: email },
           subject: subject,
           text: message
         }
@@ -19,6 +19,7 @@ class SparkpostMailer
 
       client.transmissions.create(properties)
     rescue Exception => e
+      Rails.logger.error(e.message)
       return false
     end
   end

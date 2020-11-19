@@ -1,9 +1,15 @@
 class Api::CompanyController < ApplicationController
   def create
-    clients_emails = ClientsEmailsService.separate_emails(recepients)
+    begin
+      clients_emails = ClientsEmailsService.separate_emails(recepients)
 
-    ClientsCompanyCreator.call(clients_emails, subject, message)
-    EmailWorker.perform_async(clients_emails, subject, message)
+      ClientsCompanyCreator.call(clients_emails, subject, message)
+      EmailJob.perform_later(clients_emails, subject, message)
+
+      render json: { data: { message: "Emails sended" } }
+    rescue Exception => e
+      render json: { data: { message: e.message } }
+    end
   end
 
   private

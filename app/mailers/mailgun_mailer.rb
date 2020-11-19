@@ -17,6 +17,7 @@ class MailgunMailer
       # Send your message through the client
       mg_client.send_message(domain, message_params)
     rescue Exception => e
+      Rails.logger.error(e.message)
       return false
     end
   end
