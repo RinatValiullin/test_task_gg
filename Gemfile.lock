@@ -76,6 +76,7 @@ GEM
     email_validator (2.0.1)
       activemodel
     erubi (1.10.0)
+    excon (0.78.0)
     ffi (1.13.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -83,6 +84,7 @@ GEM
       domain_name (~> 0.5)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
+    json (2.3.1)
     jsonapi-serializer (2.1.0)
       activesupport (>= 4.2)
     listen (3.1.5)
@@ -178,6 +180,9 @@ GEM
       rspec-support (~> 3.9)
     rspec-support (3.10.0)
     ruby_dep (1.5.0)
+    simple_spark (1.0.12)
+      excon (>= 0.16.0, < 1.0)
+      json (>= 1.7.7, < 3.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -218,6 +223,7 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.4)
   redis (~> 4.0)
   rspec-rails (~> 4.0.1)
+  simple_spark
   tzinfo-data
   webpacker (~> 4.0)
 

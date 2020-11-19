@@ -17,6 +17,7 @@ gem 'jsonapi-serializer'
 
 #mailers
 gem 'mailgun-ruby', '~>1.1.6'
+gem 'simple_spark'
 
 group :development, :test do
   gem 'pry-rails'
