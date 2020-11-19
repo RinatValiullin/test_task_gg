@@ -18,6 +18,9 @@ gem 'jsonapi-serializer'
 #mailers
 gem 'mailgun-ruby', '~>1.1.6'
 gem 'simple_spark'
+gem 'aws-sdk'
+
+gem 'sidekiq', '~>6.0.0'
 
 group :development, :test do
   gem 'pry-rails'

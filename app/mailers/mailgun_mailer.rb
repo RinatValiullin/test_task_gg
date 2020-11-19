@@ -1,5 +1,5 @@
 class MailgunMailer
-  def self.deliver(emails, subject, message)
+  def self.send_message(emails, subject, message)
     begin
       api_key = Rails.application.secrets[:MAILGUN_API_KEY]
       domain = Rails.application.secrets[:MAILGUN_DOMAIN]
