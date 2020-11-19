@@ -13,6 +13,7 @@ gem 'webpacker', '~> 4.0'
 gem 'redis', '~> 4.0'
 gem 'listen', '~> 3.1.5'
 gem 'email_validator'
+gem 'jsonapi-serializer'
 
 group :development, :test do
   gem 'pry-rails'
