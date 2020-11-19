@@ -1,4 +1,4 @@
 class Company < ActiveRecord::Base
-  has_many :clients_companies
-  has_many :clients, through: :clients_companies
+  has_many :client_company
+  has_many :clients, through: :client_company
 end

@@ -19,19 +19,19 @@ ActiveRecord::Schema.define(version: 2020_11_19_123354) do
   enable_extension "plpgsql"
   enable_extension "postgis"
 
-  create_table "clients", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "clients_companies", force: :cascade do |t|
+  create_table "client_companies", force: :cascade do |t|
     t.bigint "client_id"
     t.bigint "company_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["client_id"], name: "index_clients_companies_on_client_id"
-    t.index ["company_id"], name: "index_clients_companies_on_company_id"
+    t.index ["client_id"], name: "index_client_companies_on_client_id"
+    t.index ["company_id"], name: "index_client_companies_on_company_id"
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "companies", force: :cascade do |t|
@@ -48,6 +48,6 @@ ActiveRecord::Schema.define(version: 2020_11_19_123354) do
     t.string "proj4text", limit: 2048
   end
 
-  add_foreign_key "clients_companies", "clients"
-  add_foreign_key "clients_companies", "companies"
+  add_foreign_key "client_companies", "clients"
+  add_foreign_key "client_companies", "companies"
 end
