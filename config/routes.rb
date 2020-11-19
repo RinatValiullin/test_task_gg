@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :api, defaults: {format: :json} do
+    resources :message, only: [:create]
+    resources :recepients, only: [:index] do
+      member do
+        get :campaign_list
+      end
+    end
+  end
 end
