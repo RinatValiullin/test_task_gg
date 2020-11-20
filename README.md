@@ -1,24 +1,14 @@
-# README
+## Before start
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1) Execute `bundle` command;
+2) Create and migrate DB;
+3) Add credentials for `MAILGUN` and `SPARKPOST` using next pattern:
+    ```
+    mailers:
+        MAILGUN_API_KEY: API_KEY
+        MAILGUN_DOMAIN: DOMAIN
+        SPARKPOST_API_KEY: ANOTHER_KEY
+        SPARKPOST_EXAMPLE_EMAIL: anything@sparkpostbox.com
+    ```
+    
+ Execute `rails s` for starting server, `rspec spec` for running specs
