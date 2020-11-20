@@ -1,8 +1,8 @@
 class SparkpostMailer
   def self.send_message(emails, subject, message)
     begin
-      api_key = Rails.application.secrets[:SPARKPOST_API_KEY]
-      email = Rails.application.secrets[:SPARKPOST_EXAMPLE_EMAIL]
+      api_key = Rails.application.credentials.mailers[:SPARKPOST_API_KEY]
+      email = Rails.application.credentials.mailers[:SPARKPOST_EXAMPLE_EMAIL]
 
       client = SimpleSpark::Client.new(api_key: api_key)
 

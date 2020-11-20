@@ -1,8 +1,8 @@
 class MailgunMailer
   def self.send_message(emails, subject, message)
     begin
-      api_key = Rails.application.secrets[:MAILGUN_API_KEY]
-      domain = Rails.application.secrets[:MAILGUN_DOMAIN]
+      api_key = Rails.application.credentials.mailers[:MAILGUN_API_KEY]
+      domain = Rails.application.credentials.mailers[:MAILGUN_DOMAIN]
 
       mg_client = Mailgun::Client.new(api_key)
 
