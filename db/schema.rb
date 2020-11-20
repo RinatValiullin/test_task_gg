@@ -41,13 +41,6 @@ ActiveRecord::Schema.define(version: 2020_11_19_123354) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "spatial_ref_sys", primary_key: "srid", id: :integer, default: nil, force: :cascade do |t|
-    t.string "auth_name", limit: 256
-    t.integer "auth_srid"
-    t.string "srtext", limit: 2048
-    t.string "proj4text", limit: 2048
-  end
-
   add_foreign_key "client_companies", "clients"
   add_foreign_key "client_companies", "companies"
 end

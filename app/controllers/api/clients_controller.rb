@@ -1,8 +1,8 @@
 class Api::ClientsController < ApplicationController
   def index
-    @clients = Client.all
+    clients = Client.all
 
-    render json: ClientSerializer.new(@clients).serializable_hash
+    render json: ClientSerializer.new(clients).serializable_hash
   end
 
   def companies_list
@@ -12,7 +12,7 @@ class Api::ClientsController < ApplicationController
   private
 
   def client
-    @client = Client.find(params[:id])
+    Client.find(params[:id])
   end
 
   def ordered_companies_list

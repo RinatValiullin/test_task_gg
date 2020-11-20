@@ -1,14 +1,22 @@
 class Api::CompanyController < ApplicationController
+  include EmailsSeparatorHelper
+
   def create
     begin
-      clients_emails = ClientsEmailsService.separate_emails(recepients)
+      if recepients.blank?
+        render json: { data: { message: "You forgot to enter emails" } }, status: 422
+        return
+      end
+
+      clients_emails = separate_emails(recepients)
 
       ClientsCompanyCreator.call(clients_emails, subject, message)
       EmailJob.perform_later(clients_emails, subject, message)
 
-      render json: { data: { message: "Emails sended" } }
+      render json: { data: { message: "Emails sent" } }
     rescue Exception => e
-      render json: { data: { message: e.message } }
+      Rails.logger.error(e.message)
+      render json: { data: { message: "Something goes wrong" } }, status: 422
     end
   end
 
