@@ -11,6 +11,5 @@ describe Company do
   describe 'validations' do
     it { is_expected.to validate_uniqueness_of :subject }
     it { is_expected.to validate_uniqueness_of :message }
-
   end
 end
