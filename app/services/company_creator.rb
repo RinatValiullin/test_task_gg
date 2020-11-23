@@ -1,6 +1,4 @@
-class ClientsCompanyCreator < ApplicationService
-  include EmailsSeparatorHelper
-
+class CompanyCreator < ApplicationService
   attr_accessor :emails, :subject, :message
 
   validates :subject, :message, :emails, presence: true
@@ -15,7 +13,7 @@ class ClientsCompanyCreator < ApplicationService
     company = Company.new(subject: @subject, message: @message)
     company.clients = find_or_create_clients
 
-    if company.valid?
+    if success? && company.valid?
       company.save
       EmailJob.perform_later(normalized_email, subject, message)
     else
@@ -42,6 +40,6 @@ class ClientsCompanyCreator < ApplicationService
   end
 
   def normalized_email
-    @normalized_email ||= separate_emails(emails)
+    @mormalized_emails ||= emails.gsub(",", "\n").split("\n").map(&:strip)
   end
 end
